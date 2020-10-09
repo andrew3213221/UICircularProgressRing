@@ -103,8 +103,10 @@ class UICircularRingLayer: CAShapeLayer {
         super.draw(in: ctx)
         UIGraphicsPushContext(ctx)
         // Draw the rings
+      if #available(iOS 10, *) {
         drawOuterRing()
         drawInnerRing(in: ctx)
+      }
         // Draw the label
         drawValueLabel()
         // Call the delegate and notifiy of updated value
